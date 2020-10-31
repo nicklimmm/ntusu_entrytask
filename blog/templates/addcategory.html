@@ -1,21 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %} Edit Post {% endblock %}
+{% block title %} Create a New Category {% endblock %}
 
 {% block content %}
-
-    {% if user.is_authenticated and user == post.author %}
-        <h1>Edit Post</h1>
+    {% if user.is_authenticated %}
+        <h1>Add Category</h1>
         <br>
         <div class="form-group">
             <form action="" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="btn btn-secondary">Edit</button>
+                <button class="btn btn-secondary">Create Category</button>
             </form>
         </div>
     {% else %}
-        <h2>Please login to edit this post</h2>
+        <h2>Please login to create category</h2>
     {% endif %}
-
+    
 {% endblock %}
